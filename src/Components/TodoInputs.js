@@ -8,11 +8,12 @@ class TodoInputs extends Component {
     }
 
     render() {
+
         return (
             <form className="todo-form">
                 <input id="todo-input" type="text" className="input-control" name="todos" />
-                <button type="submit" className="custom-btn add-btn"><FontAwesomeIcon icon="paper-plane" /></button>
-        </form>
+                <button type="submit" className="custom-btn add-btn" title="Add Todos"><FontAwesomeIcon icon="paper-plane" /></button>
+            </form>
         )
     }
 }
