@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+import './Components/FontAwesome';
 import './App.css';
+import TodoInputs from './Components/TodoInputs';
 
 function App() {
   return (
     <div className="App">
-      <h1>Todo Lis</h1>
+      <div className="todo-container">
+        <h1>Task for the day</h1>
+        <TodoInputs />
+      </div>
     </div>
   );
 }
