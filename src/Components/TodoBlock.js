@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import TodoItems from './TodoItems';
 
 class TodoBlock extends Component {
+
     constructor() {
         super();
-        this.state = {
-            id: 0,
-            todo: '',
-            date: '',
-            isCompleted: false
-        }
+        this.state = {}
     }
 
     render() {
 
-        let colors = ["red","blue","green","yellow"];
-        let randomColor = colors[Math.floor(Math.random()*colors.length)]; 
-
         return (
             <ul className="todo-list">
-                <TodoItems bgColor={randomColor} />
-                <TodoItems bgColor={randomColor}/>
+                {
+                    this.props.todoList.map(todo => {
+                        return <TodoItems 
+                            key = {todo.id}
+                            id = {todo.id}
+                            bgColor = {todo.bgColor}
+                            data = {todo.todos}
+                            date= {todo.date}
+                        />
+                    })
+                }
             </ul>
         )
     }
