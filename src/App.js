@@ -12,33 +12,27 @@ class App extends Component {
     }
     this.addTodoHandler = this.addTodoHandler.bind(this);
     this.deleteTodoHandler = this.deleteTodoHandler.bind(this);
-    this.completeTodoHandler = this.completeTodoHandler.bind(this);
-    this.uncheckTodoHandler = this.uncheckTodoHandler.bind(this);
+    this.todoToggleHandler = this.todoToggleHandler.bind(this);
   }
 
-  uncheckTodoHandler = (todoId) => {
+  todoToggleHandler = (todoId, status) => {
+    
     const colors = ["red","blue","green","yellow"];
     const randomColor = colors[Math.floor(Math.random()*colors.length)];
     let todoList = [...this.state.todoList];
     let todo = {...todoList[todoId]};
-    todo.bgColor = randomColor;
-    todo.isCompleted = false;
+
+    if (status === "check") {
+      todo.bgColor = "black";
+      todo.isCompleted = true;
+    } else {
+      todo.bgColor = randomColor;
+      todo.isCompleted = false;
+    }
+
     todoList[todoId] = todo;
     this.setState({todoList});
-    console.log(todoId);
-    console.log(this.state.todoList);
   }
-  
-  completeTodoHandler = (todoId) => {
-    let todoList = [...this.state.todoList];
-    let todo = {...todoList[todoId]};
-    todo.bgColor = "black";
-    todo.isCompleted = true;
-    todoList[todoId] = todo;
-    this.setState({todoList});
-    console.log(todoId);
-    console.log(this.state.todoList);
-  } 
 
   deleteTodoHandler = (todoId) => {
     let todoList = this.state.todoList;
@@ -76,8 +70,7 @@ class App extends Component {
           <TodoBlock 
             todoList={this.state.todoList} 
             deleteTodoHandler={this.deleteTodoHandler} 
-            completeTodoHandler={this.completeTodoHandler}
-            uncheckTodoHandler={this.uncheckTodoHandler}
+            todoToggleHandler={this.todoToggleHandler}
           />
         </div>
       </div>

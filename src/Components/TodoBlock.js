@@ -9,8 +9,7 @@ class TodoBlock extends Component {
     }
 
     todoDelete = todoId => { this.props.deleteTodoHandler(todoId); }
-    todoComplete = todoId => { this.props.deleteTodoHandler(todoId); }
-    todoPending = todoId => { this.props.uncheckTodoHandler(todoId); }
+    todoToggleClick = (todoId, status) => { this.props.todoToggleHandler(todoId, status) }
 
     render() {
 
@@ -26,8 +25,7 @@ class TodoBlock extends Component {
                             date= {todo.date} 
                             status = {todo.isCompleted}
                             todoDelete = {this.props.deleteTodoHandler}
-                            todoComplete = {this.props.completeTodoHandler}
-                            todoPending = {this.props.uncheckTodoHandler}
+                            todoToggleClick = {this.props.todoToggleHandler}
                         />
                     })
                 }
