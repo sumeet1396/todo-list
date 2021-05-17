@@ -68,7 +68,11 @@ h1 {
   color: #fff;
 }
 
-.red { background-color: ; }
-.blue { background-color: ; }
-.green { background-color: ; }
-.yellow { background-color: ; }
+.todo-list li.black { 
+  background-color: #000;
+  text-decoration: line-through;
+}
+.todo-list li.red { background-color: #f73434; }
+.todo-list li.blue { background-color: #0641c9; }
+.todo-list li.green { background-color: #00c911; }
+.todo-list li.yellow { background-color: #e7eb0e; }

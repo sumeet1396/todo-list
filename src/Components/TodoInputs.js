@@ -33,6 +33,7 @@ class TodoInputs extends Component {
         e.preventDefault();
         this.props.addTodoHandler(this.state);
         this.setState({id: 0, todos: '', date: '', bgColor: '', isCompleted: false});
+        e.target.todos.value = "";
     }
 
     render() {
