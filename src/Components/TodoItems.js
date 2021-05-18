@@ -15,13 +15,12 @@ class TodoItems extends Component {
     }
 
     onToggleClick = (todoId, status) => {
-        const id = todoId - 1;
-        this.props.todoToggleClick(id, status);
+        this.props.todoToggleClick(todoId, status);
     }
 
     render() {
+
         return (
-            
             <li className={this.props.bgColor} data-todo-id={this.props.id}>
                 <div>
                     <span>{this.props.data}</span>

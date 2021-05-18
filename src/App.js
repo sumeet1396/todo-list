@@ -14,13 +14,20 @@ class App extends Component {
     this.deleteTodoHandler = this.deleteTodoHandler.bind(this);
     this.todoToggleHandler = this.todoToggleHandler.bind(this);
   }
-
+  
   todoToggleHandler = (todoId, status) => {
     
     const colors = ["red","blue","green","yellow"];
     const randomColor = colors[Math.floor(Math.random()*colors.length)];
-    let todoList = [...this.state.todoList];
-    let todo = {...todoList[todoId]};
+
+    let todoList = this.state.todoList;
+    let todoIndex = 0;
+    todoList.map((todo, index) => {
+      if (todo.id === todoId) {
+        todoIndex = index;
+      }
+    }, this);
+    let todo = {...todoList[todoIndex]};
 
     if (status === "check") {
       todo.bgColor = "black";
@@ -30,7 +37,7 @@ class App extends Component {
       todo.isCompleted = false;
     }
 
-    todoList[todoId] = todo;
+    todoList[todoIndex] = todo;
     this.setState({todoList});
   }
 
