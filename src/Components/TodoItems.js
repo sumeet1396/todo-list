@@ -5,7 +5,9 @@ class TodoItems extends Component {
 
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+          isEditableText: false
+        }
         this.onDeletedTodoClick = this.onDeletedTodoClick.bind(this);
         this.onToggleClick = this.onToggleClick.bind(this);
     }
@@ -23,7 +25,7 @@ class TodoItems extends Component {
         return (
             <li className={this.props.bgColor} data-todo-id={this.props.id}>
                 <div>
-                    <span>{this.props.data}</span>
+                    <span contentEditable={this.state.isEditableText}>{this.props.data}</span>
                 </div>
                 <div>
                     { this.props.status ? 
